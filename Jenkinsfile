@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git url: 'https://github.com/yourusername/comp367-webapp.git', branch: 'main'
+        git url: 'https://github.com/ntsn301/comp367-webapp.git', branch: 'main'
       }
     }
     stage('Build') {
