@@ -1,7 +1,7 @@
 pipeline {
   agent any
-  triggers {
-    pollSCM('H/5 * * * *') // Poll every 5 mins
+  tools {
+    maven 'MAVEN3' // Name matches the Maven tool configured in Jenkins
   }
   stages {
     stage('Checkout') {
@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'mvn clean package'
+        bat 'mvn clean package' // Use "bat" for Windows, "sh" for Linux
       }
     }
   }
