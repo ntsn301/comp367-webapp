@@ -26,13 +26,13 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t ntsn301/comp367-webapp .'
+                sh 'docker build -t ntsn26/comp367-webapp .'
             }
         }
 
         stage('Docker Push') {
             steps {
-                sh 'docker push ntsn301/comp367-webapp'
+                sh 'docker push ntsn26/comp367-webapp'
             }
         }
     }
