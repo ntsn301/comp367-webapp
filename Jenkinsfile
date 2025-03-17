@@ -1,9 +1,8 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials') // Add in Jenkins Credentials
-        IMAGE_NAME = 'ntsn301/comp367-webapp'
+    tools {
+        maven 'MAVEN3'  
     }
 
     stages {
@@ -27,13 +26,13 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                sh 'docker build -t ntsn301/comp367-webapp .'
             }
         }
 
         stage('Docker Push') {
             steps {
-                sh 'docker push $IMAGE_NAME'
+                sh 'docker push ntsn301/comp367-webapp'
             }
         }
     }
