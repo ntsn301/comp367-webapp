@@ -1,5 +1,4 @@
-FROM openjdk:11-jdk
-WORKDIR /app
-COPY target/webapp.war /app/webapp.war
-CMD ["java", "-jar", "/app/webapp.war"]
+FROM tomcat:9.0
+COPY target/webapp.war /usr/local/tomcat/webapps/webapp.war
 EXPOSE 8080
+CMD ["catalina.sh", "run"]
